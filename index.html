@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>个人简介 — CVPR 投稿用</title>
+  <meta name="description" content="用于 CVPR 投稿的简洁个人简介页面，包含联系方式、研究方向、代表性成果与项目链接。">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa7bf;--accent:#4f46e5;--glass:rgba(255,255,255,0.03)}
+    html,body{height:100%;margin:0;font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:linear-gradient(180deg,#071028 0%, #081428 60%);color:#e6eef8}
+    .container{max-width:920px;margin:36px auto;padding:28px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    header{display:flex;gap:20px;align-items:center}
+    .photo{width:120px;height:120px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;flex:0 0 120px}
+    h1{margin:0;font-size:26px}
+    .sub{color:var(--muted);margin-top:6px}
+    .meta{margin-left:auto;text-align:right;color:var(--muted)}
+    .card{background:var(--card);padding:18px;border-radius:10px;margin-top:18px}
+    h2{margin:0 0 10px 0;font-size:18px}
+    p{margin:0 0 12px 0;color:#d7e6ff}
+    ul{margin:8px 0 12px 18px}
+    li{margin:6px 0}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--muted);font-size:13px;margin-right:8px}
+    a{color:var(--accent);text-decoration:none}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}.meta{text-align:left;margin-left:0}}
+    .pub{background:linear-gradient(90deg, rgba(79,70,229,0.06), rgba(6,182,212,0.03));padding:12px;border-radius:8px}
+    .small{font-size:13px;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;text-decoration:none;font-weight:600}
+    footer{margin-top:20px;color:var(--muted);font-size:13px;text-align:center}
+    /* helper: copy-to-clipboard */
+    .copy{cursor:pointer;margin-left:8px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="photo" id="photo">照片
+        <!-- 把替换为真实照片：<img src="your-photo.jpg" alt="photo" style="width:100%;height:100%;object-fit:cover;border-radius:10px"> -->
+      </div>
+      <div>
+        <h1 id="name">姓名（请替换）</h1>
+        <div class="sub" id="affil">单位 / 实验室 · 职称/学生身份</div>
+        <div style="margin-top:8px">
+          <span class="tag" id="role">计算机视觉 · 多模态学习</span>
+          <span class="tag" id="location">城市, 国家</span>
+        </div>
+      </div>
+      <div class="meta">
+        <div class="small">Email</div>
+        <div style="margin-top:6px"><a href="mailto:your.email@example.com" id="email">your.email@example.com</a>
+          <span class="copy" onclick="copyToClipboard('your.email@example.com')">复制</span>
+        </div>
+        <div class="small" style="margin-top:10px">个人主页 / GitHub</div>
+        <div style="margin-top:6px"><a href="#" id="homepage">https://your.homepage</a></div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h2>个人简介</h2>
+          <p id="bio">（一句话概述你的研究方向和特色。例如：）我的主要研究方向为视频理解与跨模态推理，聚焦于鲁棒性评估、时序建模与高效的多模态表征学习。近年工作关注现实条件下视频数据的质量退化对理解系统性能的影响，提出了可复现的基准与增强方法。</p>
+
+          <h2 style="margin-top:12px">研究方向</h2>
+          <p class="small">（可列出 3–5 项）</p>
+          <ul id="research">
+            <li>视频理解与长期时序建模</li>
+            <li>多模态大模型在视频任务中的评估与适配</li>
+            <li>鲁棒性与降质分析（分辨率、码率、帧丢失等）</li>
+            <li>高效模型与自监督学习</li>
+          </ul>
+
+          <h2 style="margin-top:12px">代表性论文（示例格式）</h2>
+          <div class="pub" id="publications">
+            <ol>
+              <li><strong>作者列表</strong>, “论文标题”, 会议名, 年份. <span class="small">（链接 / DOI）</span></li>
+              <li><strong>作者列表</strong>, “论文标题”, 会议名, 年份. <span class="small">（链接 / DOI）</span></li>
+            </ol>
+          </div>
+
+          <h2 style="margin-top:12px">近期项目与代码</h2>
+          <ul id="projects">
+            <li><strong>RobustVidBench</strong> — 视频鲁棒性基准套件。<br><span class="small">代码 & 数据集：<a href="#">GitHub / Drive 链接</a></span></li>
+            <li><strong>EfficientTemporalNet</strong> — 轻量级时序建模网络，适配长视频场景。<br><span class="small">代码：<a href="#">GitHub</a></span></li>
+          </ul>
+
+          <h2 style="margin-top:12px">技能与工具</h2>
+          <p class="small">PyTorch, TensorFlow, Python, CUDA, OpenCV, FFmpeg, Docker, Git, 论文写作与实验设计</p>
+
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h2>奖项与资助（可选）</h2>
+          <ul>
+            <li>例如：国家奖学金 / 会议最佳论文提名 / 研究基金支持</li>
+          </ul>
+          <h2 style="margin-top:12px">可复现说明（短）</h2>
+          <p class="small">提供代码、预训练模型与复现实验脚本；关键数据集和预处理步骤将在 GitHub Release 中公开。</p>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>联系信息</h2>
+          <p class="small">邮箱：<a href="mailto:your.email@example.com">your.email@example.com</a></p>
+          <p class="small">主页：<a href="#">https://your.homepage</a></p>
+          <p class="small">GitHub：<a href="#">github.com/yourname</a></p>
+          <p class="small">ORCID：<a href="#">0000-0000-0000-0000</a></p>
+          <div style="margin-top:8px"><a class="btn" href="#">下载 PDF 简历</a></div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h2>会议/投稿用途说明</h2>
+          <p class="small">本页面模板适用于在 CVPR 投稿中填写作者简介、补充材料链接与可复现声明。请根据投稿要求调整字数和格式（例如 50–200 字简介）。</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h2>快速复制</h2>
+          <p class="small">点击下面按钮可复制一段适用于投稿的短简介：</p>
+          <button class="btn" onclick="copyToClipboard(sampleBio)">复制短简介</button>
+          <pre class="small" style="background:transparent;border-radius:6px;padding:8px;margin-top:8px;color:var(--muted);">短简介示例：我的研究专注于视频理解与多模态表示，提出了针对现实场景下视频退化问题的基准与方法，提升了模型在低质量视频下的鲁棒性。</pre>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer>
+      模板生成时间：自动（请替换为实际日期）。 如需我代为填写具体内容（姓名、论文条目、GitHub 链接等），把信息发过来即可。
+    </footer>
+  </main>
+
+  <script>
+    const sampleBio = "我的研究专注于视频理解与多模态表示，提出了针对现实场景下视频退化问题的基准与方法，显著提升了模型在低质量视频下的鲁棒性。";
+    function copyToClipboard(text){
+      const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+      alert('已复制到剪贴板');
+    }
+  </script>
+</body>
+</html>
